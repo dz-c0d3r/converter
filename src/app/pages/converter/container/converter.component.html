@@ -1,0 +1,217 @@
+<!-- This example requires Tailwind CSS v2.0+ -->
+<div
+  class="currency-rate-container bg-white shadow overflow-hidden sm:rounded-lg"
+>
+  <div class="amount-label">
+    <span>Montant</span>
+  </div>
+  <div class="from-label">
+    <span>De</span>
+  </div>
+  <div class="to-label">
+    <span>Vers</span>
+  </div>
+  <div class="amount-input">
+    <div class="mt-1 relative rounded-md shadow-sm">
+      <div
+        class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
+      >
+        <span class="text-gray-500 sm:text-sm"> $ </span>
+      </div>
+      <input
+        type="number"
+        name="amount"
+        id="amount"
+        class="focus:ring-green-700 focus:border-green-700 block w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md"
+        placeholder="1.00"
+      />
+    </div>
+  </div>
+  <div class="from-select">
+    <tw-select></tw-select>
+  </div>
+  <div class="switch-btn pt-1">
+    <button
+      type="button"
+      class="rounded-full h-11 w-11 flex border border-gray-300 bg-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-700"
+    >
+      <span
+        class="rounded-full absolute flex items-center text-green-700 hover:text-white"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 17 17"
+          aria-hidden="true"
+          class="switch-btn-icon"
+        >
+          <path
+            fill="currentColor"
+            fill-rule="evenodd"
+            d="M11.726 1.273l2.387 2.394H.667V5h13.446l-2.386 2.393.94.94 4-4-4-4-.94.94zM.666 12.333l4 4 .94-.94L3.22 13h13.447v-1.333H3.22l2.386-2.394-.94-.94-4 4z"
+            clip-rule="evenodd"
+          ></path>
+        </svg>
+      </span>
+    </button>
+  </div>
+  <div class="to-select">
+    <tw-select></tw-select>
+  </div>
+  <div class="amount-value-label text-gray-500 text-lg mt-2">
+    <span>1,00 Dollar des États-Unis =</span>
+  </div>
+  <div class="rate-variation text-gray-700">
+    <span>Taux de variation </span>
+    <mat-slider
+      thumbLabel
+      min="0"
+      max="200"
+    ></mat-slider>
+  </div>
+  <div class="exchange-value text-gray-600 text-2xl">
+    <span>0,85<span class="text-gray-400">314939</span> Euro</span>
+  </div>
+  <div class="currency-1-rate text-gray-400 text-sm">1 EUR = 1,17213 USD</div>
+  <div class="currency-2-rate text-gray-400 text-sm">1 USD = 0,853149 EUR</div>
+  <div class="convert-btn justify-self-end">
+    <span class="mt-5 flex lg:mt-0 lg:ml-4">
+      <button
+        type="button"
+        class="flex py-2 px-4 rounded-md shadow-md text-green-700 text-md border border-gray-300 bg-white hover:text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-700"
+      >
+        Convertir
+      </button>
+    </span>
+  </div>
+  <div class="info text-gray-500 text-sm">
+    <span class="flex items-center">
+      Taux de change en temps réel via 1forge API
+      <span class="has-tooltip flex">
+        <svg
+          class="flex-shrink-0 h-4 w-4 ml-2"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 16 16"
+          aria-hidden="true"
+          tabindex="0"
+        >
+          <path
+            fill="currentColor"
+            fill-rule="evenodd"
+            d="M8.571 11.429V6.286H6.286v1.143h1.143v4H5.714v1.142h4.572V11.43H8.57zM8 2.857a.857.857 0 100 1.714.857.857 0 000-1.714zM8 16A8 8 0 118 0a8 8 0 010 16zM8 1.143a6.857 6.857 0 100 13.714A6.857 6.857 0 008 1.143z"
+            clip-rule="evenodd"
+          ></path>
+        </svg>
+        <span
+          class="tooltip flex rounded-md shadow-lg p-1 bg-green-500 text-white -mt-8"
+          >
+          <div class="whitespace-pre-line">
+            "quota_used": 1,
+            "quota_limit": 5000,
+            "quota_remaining": 4999,
+            "hours_until_reset": 0
+          </div>
+        </span
+        >
+      </span>
+    </span>
+  </div>
+  <div class="last-update justify-self-end text-gray-500 text-xs">
+    <span>Last updated 30 mars 2021, 22:35 UTC</span>
+  </div>
+</div>
+<!--
+<div class="bg-white shadow overflow-hidden sm:rounded-lg">
+  <div class="px-4 py-5 sm:px-6">
+    <h3 class="text-lg leading-6 font-medium">
+      Applicant Information
+    </h3>
+    <p class="mt-1 max-w-2xl text-sm text-gray-500">
+      Personal details and application.
+    </p>
+  </div>
+  <div class="border-t border-gray-200">
+    <dl>
+      <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+        <dt class="text-sm font-medium text-gray-500">Full name</dt>
+        <dd class="mt-1 text-sm sm:mt-0 sm:col-span-2">
+          Margot Foster
+        </dd>
+      </div>
+      <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+        <dt class="text-sm font-medium text-gray-500">Application for</dt>
+        <dd class="mt-1 text-sm sm:mt-0 sm:col-span-2">
+          Backend Developer
+        </dd>
+      </div>
+    </dl>
+  </div>
+</div>
+-->
+<!-- Move to presentational component -->
+<div class="flex flex-col">
+  <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+    <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+      <div
+        class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg"
+      >
+        <table class="min-w-full divide-y divide-gray-200">
+          <thead class="bg-gray-50">
+            <tr>
+              <th
+                scope="col"
+                class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider"
+              >
+                Taux de change réel
+              </th>
+              <th
+                scope="col"
+                class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider"
+              >
+                Taux de change avec variation
+              </th>
+              <th
+                scope="col"
+                class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider"
+              >
+                Montant réel
+              </th>
+              <th
+                scope="col"
+                class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider"
+              >
+                Montant avec variation
+              </th>
+            </tr>
+          </thead>
+          <tbody class="bg-white divide-y divide-gray-200">
+            <tr>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <div class="flex items-center">
+                  <div class="flex-shrink-0 h-10 w-10">
+                    <img class="h-10 w-10" src="assets/usa.svg" alt="" />
+                  </div>
+                  <div class="ml-4">
+                    <div class="text-sm font-medium">0,85314939 $</div>
+                    <!--<div class="text-sm text-gray-500">
+                    jane.cooper@example.com
+                  </div>-->
+                  </div>
+                </div>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <div class="text-sm">0,85314939 $</div>
+                <div class="text-sm text-gray-500">0%</div>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm">1 €</td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm">0,85 $</td>
+            </tr>
+
+            <!-- More items... -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

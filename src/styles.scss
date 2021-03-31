@@ -9,5 +9,15 @@ body {
 }
 body {
   margin: 0;
+  color: #374151; //gray-700
   font-family: Roboto, "Helvetica Neue", sans-serif;
+
+  .tooltip {
+    @apply invisible absolute;
+    height: fit-content;
+  }
+
+  .has-tooltip:hover .tooltip {
+    @apply visible z-50;
+  }
 }

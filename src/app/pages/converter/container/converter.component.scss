@@ -1,0 +1,97 @@
+.currency-rate-container {
+  display: grid;
+  grid-template-columns: 1.3fr 1.3fr 0.1fr 1.3fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 0 3vh;
+  grid-template-areas:
+    "blank-0-0 blank-0 blank-0 blank-0"
+    "amount-label from-label . to-label"
+    "amount-input from-select switch-btn to-select"
+    "blank-1 blank-1 blank-1 blank-1"
+    "amount-value-label rate-variation . ."
+    "exchange-value . . ."
+    "blank-2 blank-2 blank-2 blank-2"
+    "currency-1-rate . . convert-btn"
+    "currency-2-rate . . convert-btn"
+    "blank-3 blank-3 blank-3 blank-3"
+    "info info . last-update";
+  height: 50vh;
+  margin-bottom: 5vh;
+  padding: 3vh 5vh;
+}
+.blank-0 {
+  grid-area: blank-0;
+}
+.amount-label {
+  grid-area: amount-label;
+}
+.from-label {
+  grid-area: from-label;
+}
+.to-label {
+  grid-area: to-label;
+}
+.amount-input {
+  grid-area: amount-input;
+  #amount {
+    height: 2.625rem;
+  }
+}
+.from-select {
+  grid-area: from-select;
+}
+.switch-btn {
+  grid-area: switch-btn;
+  span {
+    padding: 0.7rem;
+  }
+  .switch-btn-icon {
+    width: 20px;
+    height: 20px;
+    transform: rotate(0deg);
+  }
+}
+.to-select {
+  grid-area: to-select;
+}
+.blank-1 {
+  grid-area: blank-1;
+}
+.amount-value-label {
+  grid-area: amount-value-label;
+}
+.rate-variation {
+  grid-area: rate-variation;
+  mat-slider {
+    ::ng-deep .mat-slider-wrapper {
+      .mat-slider-track-fill, .mat-slider-thumb, .mat-slider-thumb-label {
+        background-color: #10B981 !important; //green-500
+      }
+    }
+  }
+
+}
+.exchange-value {
+  grid-area: exchange-value;
+}
+.blank-2 {
+  grid-area: blank-2;
+}
+.currency-1-rate {
+  grid-area: currency-1-rate;
+}
+.currency-2-rate {
+  grid-area: currency-2-rate;
+}
+.convert-btn {
+  grid-area: convert-btn;
+}
+.blank-3 {
+  grid-area: blank-3;
+}
+.info {
+  grid-area: info;
+}
+.last-update {
+  grid-area: last-update;
+}

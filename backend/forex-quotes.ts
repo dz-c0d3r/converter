@@ -26,7 +26,7 @@ server.get('/rate', (req, res) => {
     const rate = response;
     // merge quota to rate response
     client.getQuota().then((response) => {
-      res.jsonp({...rate, ...response});
+      res.jsonp({ ...rate, ...response });
     });
   });
 });
