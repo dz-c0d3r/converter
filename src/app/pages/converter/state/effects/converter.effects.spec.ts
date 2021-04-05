@@ -2,18 +2,18 @@ import { TestBed } from '@angular/core/testing';
 import { provideMockActions } from '@ngrx/effects/testing';
 import { Observable } from 'rxjs';
 
-import { AppEffects } from './app.effects';
+import { ConverterEffects } from './converter.effects';
 
-describe('AppEffects', () => {
+describe('ConverterEffects', () => {
   let actions$: Observable<any>;
-  let effects: AppEffects;
+  let effects: ConverterEffects;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [AppEffects, provideMockActions(() => actions$)],
+      providers: [ConverterEffects, provideMockActions(() => actions$)],
     });
 
-    effects = TestBed.inject(AppEffects);
+    effects = TestBed.inject(ConverterEffects);
   });
 
   it('should be created', () => {

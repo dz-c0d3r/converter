@@ -9,7 +9,7 @@
     "amount-input from-select switch-btn to-select"
     "blank-1 blank-1 blank-1 blank-1"
     "amount-value-label rate-variation . ."
-    "exchange-value . . ."
+    "exchange-value exchange-value . ."
     "blank-2 blank-2 blank-2 blank-2"
     "currency-1-rate . . convert-btn"
     "currency-2-rate . . convert-btn"
@@ -64,12 +64,13 @@
   grid-area: rate-variation;
   mat-slider {
     ::ng-deep .mat-slider-wrapper {
-      .mat-slider-track-fill, .mat-slider-thumb, .mat-slider-thumb-label {
-        background-color: #10B981 !important; //green-500
+      .mat-slider-track-fill,
+      .mat-slider-thumb,
+      .mat-slider-thumb-label {
+        background-color: #10b981 !important; //green-500
       }
     }
   }
-
 }
 .exchange-value {
   grid-area: exchange-value;

@@ -1,4 +1,9 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
+import {
+  CurrenciesCode,
+  CurrenciesCodeEnum,
+  CurrenciesLabelEnum,
+} from '../../state/converter.model';
 
 @Component({
   selector: 'tw-select',
@@ -6,4 +11,9 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   styleUrls: ['./select.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SelectComponent {}
+export class SelectComponent {
+  @Input() currentCurrency: CurrenciesCode | null = null;
+
+  currenciesCodeEnum = CurrenciesCodeEnum;
+  currenciesLabelEnum = CurrenciesLabelEnum;
+}
