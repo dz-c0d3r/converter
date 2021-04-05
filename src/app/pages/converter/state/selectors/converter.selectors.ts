@@ -1,6 +1,6 @@
 import { createSelector } from '@ngrx/store';
 import * as fromConverter from '../reducers/converter.reducer';
-import { QuotaInformation } from '../converter.model';
+import {ExchangeHistory, QuotaInformation} from '../converter.model';
 
 //#region Settings
 export const selectConverterSettings = createSelector(
@@ -90,7 +90,7 @@ export const selectExchangeRateWithVariation = createSelector(
 );
 export const selectExchangeHistory = createSelector(
   selectConverterUi,
-  ({ exchangeHistory }) => (exchangeHistory ? exchangeHistory : [])
+  ({ exchangeHistory }) => (exchangeHistory ? [...exchangeHistory].reverse() : [])
 );
 export const selectFromCurrencyBaseExchangeRate = createSelector(
   selectConverterUi,
