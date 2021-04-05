@@ -97,12 +97,12 @@ export class ConverterComponent implements AfterViewInit, OnDestroy {
         tap(() => {
           const value = this.amount?.nativeElement.value;
           if (value >= 1) {
-            this._setInput(true);
+            this._setAmountInputClass(true);
             this.store.dispatch(
               ConverterUiActions.setAmount({ value: parseFloat(value) })
             );
           } else {
-            this._setInput(false);
+            this._setAmountInputClass(false);
           }
         })
       )
@@ -115,22 +115,22 @@ export class ConverterComponent implements AfterViewInit, OnDestroy {
    * @param state: bool
    * @private
    */
-  private _setInput(state: boolean): void {
+  private _setAmountInputClass(state: boolean): void {
     const defaultClass = ['focus:border-green-700', 'focus:ring-green-700'];
     const errorClass = ['focus:border-red-700', 'focus:ring-red-700'];
     if (state) {
       for (const cssClass of errorClass) {
-        this._setClass(this.amount?.nativeElement, cssClass, 'remove');
+        this._setClassOfElement(this.amount?.nativeElement, cssClass, 'remove');
       }
       for (const cssClass of defaultClass) {
-        this._setClass(this.amount?.nativeElement, cssClass, 'add');
+        this._setClassOfElement(this.amount?.nativeElement, cssClass, 'add');
       }
     } else {
       for (const cssClass of defaultClass) {
-        this._setClass(this.amount?.nativeElement, cssClass, 'remove');
+        this._setClassOfElement(this.amount?.nativeElement, cssClass, 'remove');
       }
       for (const cssClass of errorClass) {
-        this._setClass(this.amount?.nativeElement, cssClass, 'add');
+        this._setClassOfElement(this.amount?.nativeElement, cssClass, 'add');
       }
     }
   }
@@ -142,7 +142,7 @@ export class ConverterComponent implements AfterViewInit, OnDestroy {
    * @param flag
    * @private
    */
-  private _setClass(
+  private _setClassOfElement(
     element: ElementRef,
     cssClass: string,
     flag: 'add' | 'remove'
