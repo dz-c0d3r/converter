@@ -90,27 +90,68 @@ export class ConverterComponent implements AfterViewInit, OnDestroy {
   currenciesLabelEnum = CurrenciesLabelEnum;
 
   ngAfterViewInit() {
-    this.keyupSub = fromEvent(this.amount?.nativeElement, 'keyup')
+    this.keyupSub = fromEvent(this.amount?.nativeElement, 'input')
       .pipe(
-        debounceTime(800),
+        debounceTime(500),
         distinctUntilChanged(),
         tap(() => {
           const value = this.amount?.nativeElement.value;
-          if (value !== '' && !isNaN(value) && value >= 1) {
+          if (value >= 1) {
+            this._setInput(true);
             this.store.dispatch(
               ConverterUiActions.setAmount({ value: parseFloat(value) })
             );
           } else {
-            this.renderer.setProperty(
-              this.amount?.nativeElement,
-              'value',
-              (1).toFixed(2)
-            );
-            this.store.dispatch(ConverterUiActions.setAmount({ value: 1 }));
+            this._setInput(false);
           }
         })
       )
       .subscribe();
+  }
+
+  /**
+   * true => set to default style
+   * false => set to error style
+   * @param state: bool
+   * @private
+   */
+  private _setInput(state: boolean): void {
+    const defaultClass = ['focus:border-green-700', 'focus:ring-green-700'];
+    const errorClass = ['focus:border-red-700', 'focus:ring-red-700'];
+    if (state) {
+      for (const cssClass of errorClass) {
+        this._setClass(this.amount?.nativeElement, cssClass, 'remove');
+      }
+      for (const cssClass of defaultClass) {
+        this._setClass(this.amount?.nativeElement, cssClass, 'add');
+      }
+    } else {
+      for (const cssClass of defaultClass) {
+        this._setClass(this.amount?.nativeElement, cssClass, 'remove');
+      }
+      for (const cssClass of errorClass) {
+        this._setClass(this.amount?.nativeElement, cssClass, 'add');
+      }
+    }
+  }
+
+  /**
+   * add or remove class by flag
+   * @param element
+   * @param cssClass
+   * @param flag
+   * @private
+   */
+  private _setClass(
+    element: ElementRef,
+    cssClass: string,
+    flag: 'add' | 'remove'
+  ): void {
+    if (flag === 'add') {
+      this.renderer.addClass(element, cssClass);
+    } else if (flag === 'remove') {
+      this.renderer.removeClass(element, cssClass);
+    }
   }
 
   onSwitchCurrencyClick() {
