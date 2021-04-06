@@ -6,7 +6,7 @@ import {
 } from '../../state/converter.model';
 
 @Component({
-  selector: 'tw-select',
+  selector: 'app-tw-select',
   templateUrl: './select.component.html',
   styleUrls: ['./select.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

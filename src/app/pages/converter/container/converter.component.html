@@ -41,20 +41,21 @@
             }}
           </span>
         </div>
-        <input
-          #amount
-          type="number"
-          name="amount"
-          id="amount"
-          [value]="_.amount"
-          [min]="1"
-          class="focus:ring-green-700 focus:border-green-700 block w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md"
-          placeholder="1,00"
-        />
+        <label>
+          <input
+            #amount
+            type="number"
+            name="amount"
+            [value]="_.amount"
+            [min]="1"
+            class="focus:ring-green-700 focus:border-green-700 block w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md"
+            placeholder="1,00"
+          />
+        </label>
       </div>
     </div>
     <div class="from-select">
-      <tw-select [currentCurrency]="_.fromCurrency"></tw-select>
+      <app-tw-select [currentCurrency]="_.fromCurrency"></app-tw-select>
     </div>
     <div class="switch-btn pt-1">
       <button
@@ -83,7 +84,7 @@
       </button>
     </div>
     <div class="to-select">
-      <tw-select [currentCurrency]="_.toCurrency"></tw-select>
+      <app-tw-select [currentCurrency]="_.toCurrency"></app-tw-select>
     </div>
     <div class="amount-value-label text-gray-500 text-lg mt-2">
       <span
@@ -199,9 +200,9 @@
           <span
             class="tooltip flex rounded-md shadow-lg p-1 bg-green-500 text-white -mt-8"
           >
-            <div class="whitespace-pre-line">
+            <span class="whitespace-pre-line">
               {{ _.quotaInformation | json }}
-            </div>
+            </span>
           </span>
         </span>
       </span>

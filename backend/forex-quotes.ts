@@ -20,7 +20,6 @@ server.get('/rate', (req, res) => {
   const fromCurrency = req.query.fromCurrency || 'EUR';
   const toCurrency = req.query.toCurrency || 'USD';
   const amount = req.query.amount || 1;
-  //let rate = {};
   // Convert from one currency to another:
   client.convert(fromCurrency, toCurrency, amount).then((response) => {
     const rate = response;

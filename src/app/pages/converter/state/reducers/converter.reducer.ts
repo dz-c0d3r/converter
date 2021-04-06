@@ -118,8 +118,7 @@ export const reducer = createReducer(
       ui: {
         ...state.ui,
         exchangeHistory:
-          state.ui.exchangeHistory.length <
-          state.settings.maxExchangeHistoryRow
+          state.ui.exchangeHistory.length < state.settings.maxExchangeHistoryRow
             ? state.ui.exchangeHistory.concat(params)
             : state.ui.exchangeHistory.slice(1).concat(params),
       },

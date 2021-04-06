@@ -92,7 +92,7 @@ export class ConverterComponent implements AfterViewInit, OnDestroy {
   ngAfterViewInit() {
     this.keyupSub = fromEvent(this.amount?.nativeElement, 'input')
       .pipe(
-        debounceTime(500),
+        debounceTime(700),
         distinctUntilChanged(),
         tap(() => {
           const value = this.amount?.nativeElement.value;
